@@ -1,0 +1,209 @@
+% !TEX root = main.tex
+
+% I may change the way this is done in a future version,
+%  but given that some people needed it, if you need a different degree title
+%  (e.g. Master of Science, Master in Science, Master of Arts, etc)
+%  uncomment the following 3 lines and set as appropriate (this *has* to be before \maketitle)
+% \makeatletter
+% \renewcommand {\@degree@string} {Master of Things}
+% \makeatother
+
+% \renewcommand{\thepage}{\roman{page}}
+
+\title{On computable protein functions}
+\author{Harry Scholes}
+\department{Institute of Structural and Molecular Biology}
+
+\maketitle
+
+% 
+\makedeclaration
+% 
+
+\cleardoublepage
+
+\begin{abstract} % 300 word limit
+    Proteins are biological machines that perform the majority of functions necessary for life. Nature has evolved many different proteins, each of which perform a subset of an organism’s functional repertoire. One aim of biology is to solve the sparse high dimensional problem of annotating all proteins with their true functions. Experimental characterisation remains the gold standard for assigning function, but is a major bottleneck due to resource scarcity. In this thesis, we develop a variety of computational methods to predict protein function, reduce the functional search space for proteins, and guide the design of experimental studies. Our methods take two distinct approaches: protein-centric methods that predict the functions of a given protein, and function-centric methods that predict which proteins perform a given function. We applied our methods to help solve a number of open problems in biology.
+    First, we identified new proteins involved in the progression of Alzheimer’s disease using proteomics data of brains from a fly model of the disease.
+    Second, we predicted novel plastic hydrolase enzymes in a large data set of $1.1$ billion protein sequences from metagenomes. Finally, we optimised a neural network method that extracts a small number of informative features from protein networks, which we used to predict functions of fission yeast proteins.
+\end{abstract}
+
+\cleardoublepage
+
+% https://www.grad.ucl.ac.uk/essinfo/docs/Impact-Statement-Guidance-Notes-for-Research-Students-and-Supervisors.pdf
+\begin{impactstatement}
+We present a variety of computational methods to predict the chemical and biological functions that proteins perform.
+
+First, we characterise how the brain proteome changes during progression of Alzheimer's disease, by monitoring which proteins are affected and how their abundances change.
+Despite vast expenditure over many decades, the molecular mechanisms of Alzheimer's disease, and effective treatments against it, remain elusive.
+Knowledge of which proteins and pathways are affected by Alzheimer's disease are required to develop drugs against the disease.
+Disease severity is, in part, determined by the patient genotype, so characterising proteome changes associated with different types of Alzheimer’s disease will aid the development of precise and personalised approaches to treatment.
+This may be especially relevant to early-stage interventions to prevent Alzheimer’s disease, or improve quality of life, in individuals with susceptible genetic backgrounds.
+Given the sluggish progress of the field, it would be imprudent to pass comment on time frames for these developments, but suffice it to say that they will be lucrative.
+
+Second, we mined metagenomes for putative plastic hydrolase enzymes that break plastic polymers down into their constiuent monomers.
+Virgin plastics are produced from non-renewable petroleum sources, with a large carbon footprint.
+Despite efforts to increase the amount that is recycled, only $14\%$ of the plastic produced each year is \emph{collected} for recycling.
+This is largely because the process is uneconomic, but also because recycled plastics have inferior properties.
+In the future, plastic hydrolases may form the fulcrum of a profitable, circular plastic economy, where high-quality recycled plastics are regenerated from used plastics in an energy efficient process.
+Currently, many unrecycled plastics go to landfill, but some end up as pollutants, either by being incinerated, which further increases the carbon footprint, or by polluting the environment directly.
+Plastic hydrolases, and the bacteria that use these enzymes to metabolise plastic, may, one day, help to clean up the environmental plastic pollution that affects every continent and ocean on Earth.
+Taken together, plastic hydrolases may have a profound impact on the health of organisms and the environment globally.
+
+Finally, we predicted the functions of proteins from a species of yeast that is an important model for understanding cellular processes in higher eukaryotes, including humans.
+Predicted functions help guide the design of experimental studies at the microscopic level, to confirm or refute predicted functions; at the mesoscopic level, to disentangle the interplay between proteins and pathways to determine their cellular effects; and at the macroscopic level, to identify the causes of diseases and how to treat or prevent them.
+Beyond basic science, predicted functions have a broad range of commercial applications, including, but not limited to, synthetic biology, radical life extension and astrobiology.
+
+Protein function prediction is, and will remain, an important research topic with fruitful applications in both the public and private sectors.
+\end{impactstatement}
+
+\newenvironment{dedication}
+  {\cleardoublepage           % we want a new page
+   \thispagestyle{empty}% no header and footer
+   \vspace*{\stretch{1}}% some space at the top 
+   \itshape             % the text is in italics
+   \raggedleft          % flush to the right margin
+  }
+  {\par % end the paragraph
+   \vspace{\stretch{3}} % space at bottom is three times that at the top
+   \cleardoublepage           % finish off the page
+  }
+\begin{dedication}
+    For my parents, Si\^{a}n and Tim,\\and my partner, Gal.
+\end{dedication}
+
+
+\begin{acknowledgements}
+I would particularly like to thank Christine Orengo, my supervisor, for her guidance, encouragement and understanding throughout my PhD.
+
+I would also like to thank my other supervisors, Jürg Bähler, Rob Finn, Jon Lees, John Shawe-Taylor and Kostas Thalassinos for helping to shape my research projects.
+
+The work in this thesis would not have been possible without the incredible contributions from my collaborators, Nico Bordin, Adam Cryar, Sayoni Das, Fiona Kerr, Clemens Rauer, Maria Rodriguez Lopez and Ian Sillitoe.
+
+I would also like to extend my thanks to all members of the CATH group, past and present, including Mahnaz Abbasian, Tolu Adeyelu, Sebastian Applewhite, Paul `Ash' Ashford, Joseph Bonello, Sean Le Cornu, Natalie Dawson, Su Datt Lam, Tony Lewis, Millie Pang, Neeladri Sen, Vaishali Waman and Laurel Woodridge.
+
+I am grateful to Rob Finn and Janet Thornton for hosting me at the European Bioinformatics Institute, and to Alex Almeida, Martin Hölzer, Sara Kashaf, Alex Mitchell, Lorna Richardson, Paul Saary and all members of the Metagenome Informatics and Sequence Families teams for making my time there so enjoyable.
+
+My heartfelt appreciation goes to my partner, Gal Horesh, for her loving support, boundless encouragement and brilliant scientific ideas, which kept me going over the past four years.
+
+Special thanks to my friends, Eddie Anderton, Emma Elliston and Archie Wall.
+
+I would like to recognise my undergraduate tutors at Oriel College, Max Crispin, Lynne Cox and Shona Murphy, without whom I would not have embarked on this journey.
+
+Finally, I am grateful to Wellcome for funding me.
+
+Thanks also to my examiners, Mark Wass and Nick Luscombe, for reading my thesis so thoroughly, asking interesting questions and making the viva so enjoyable.
+\end{acknowledgements}
+
+
+\setcounter{tocdepth}{2}
+% Setting this higher means you get contents entries for
+ % more minor section headers.
+
+\tableofcontents
+
+\listoffigures
+\addcontentsline{toc}{section}{List of figures}
+
+\listoftables
+\addcontentsline{toc}{section}{List of tables}
+
+\chapter*{List of abbreviations}
+\addcontentsline{toc}{section}{List of abbreviations}
+
+\begin{longtable}{ll}
+    \toprule
+    \textbf{Abbreviation} & \textbf{Phrase} \\ \midrule
+    Aβ & amyloid beta \\
+    ABH & α/β hydrolase \\
+    AD & Alzheimer's disease \\
+    ANN & artificial neural networks \\
+    APP & Aβ precursor protein \\
+    AUPR & area under the precision-recall curve \\
+    Aβ & amyloid beta \\
+    Aβ42 & 42 amino acid long amyloid beta \\
+    BIC & Bayesian information criterion \\
+    BLAST & basic local alignment search tool \\
+    BP & biological process \\
+    CAFA & Critical Assessment of Functional Annotation \\
+    CART & classification and regression tree \\
+    CC & cellular component \\
+    CCS & collision cross section \\
+    CNN & convolutional neural network \\
+    DAG & directed acyclic graph \\
+    deepNF & deep network fusion \\
+    DIA & data-independent acquisition \\
+    DOPS & diversity of position scores \\
+    E-value & expect value \\
+    EC & Enzyme Commission \\
+    ESI & electrospray ionisation \\
+    FAD & familial Alzheimer's disease \\
+    FDR & false discovery rate \\
+    FWER & family-wise error rate \\
+    FYPO & Fission Yeast Phenotype Onotology \\
+    GO & Gene Ontology \\
+    GOLD & Genomes OnLine Database \\
+    HMM & hidden Markov model \\
+    HPLC & high performance liquid chromatography \\
+    \emph{I. sakaiensis} & \emph{Ideonella sakaiensis} \\
+    LC & liquid chromatography \\
+    LCC & leaf-branch compost cutinase \\
+    LSTM & long short-term memory \\
+    MAG & metagenome-assembled genome \\
+    MALDI & matrix-assisted laser desorption/ionisation \\
+    mAUPR & micro-averaged area under the precision-recall curve \\
+    MAUPR & macro-averaged area under the precision-recall curve \\
+    MDA & multi-domain architecture \\
+    MDAE & multimodal deep autoencoder \\
+    MF & molecular function \\
+    MHET & mono(2-hydroxyethyl) terephthalic acid \\
+    MIPS & Mammalian Protein-Protein Interaction Database \\
+    MLP & multi-layer perceptron \\
+    MS & mass spectrometry \\
+    MS/MS & tandem mass spectrometry \\
+    MSA & multiple sequence alignment \\
+    NFT & neurofibrillary tangle \\
+    ORF & open reading frame \\
+    PCA & principal component analysis \\
+    PET & polyethylene terephthalate \\
+    PMBD & Plastics Microbial Biodegradation Database \\
+    PSI-BLAST & position-specific iterative BLAST \\
+    PSSM & position-specific scoring matrix \\
+    ReLU & rectified linear unit \\
+    RF & random forest \\
+    RMSD & root-mean-square deviation \\
+    RNN & recurrent neural network \\
+    \emph{S. cerevisiae} & \emph{Saccharomyces cerevisiae} \\
+    \emph{S. pombe} & \emph{Schizosaccharomyces pombe} \\
+    SAD & sporadic onset Alzheimer's disease \\
+    SDP & specificity-determining positions \\
+    SGD & stochastic gradient descent \\
+    SSAP & structure and sequence alignment program \\
+    STRING & Search Tool for the Retrieval of Interacting Genes/Proteins \\
+    SVM & support vector machine \\
+    SXX & XX$\%$ sequence identity \\
+    TgAD & transgenic fly line expressing human Arctic mutant Aβ42 \\
+    UPGMA & unweighted pair group method using arithmetic averages \\
+    UPLC & ultra performance liquid chromatography \\
+    \bottomrule
+\end{longtable}
+
+\chapter*{List of publications}
+\addcontentsline{toc}{section}{List of publications}
+
+\begin{itemize}
+    \item Sillitoe, I., Dawson, N., Lewis, T. E., Das, S., Lees, J. G., Ashford, P., Tolulope, A., Scholes, H. M., Senatorov, I., Bujan, A., Rodriguez-Conde, F. C., Dowling, B., Thornton, J. \& Orengo, C. A. ``CATH: expanding the horizons of structure-based functional annotations for genome sequences.'' \textit{Nucleic Acids Research} (2019)
+    \item Scholes, H. M., Cryar, A., Kerr, F., Sutherland, D., Gethings, L. A., Vissers, J. P. C., Lees, J. G., Orengo, C. A., Partridge, L. \& Thalassinos, K. ``Dynamic changes in the brain protein interaction network correlates with progression of Aβ42 pathology in \textit{Drosophila}.'' \textit{Scientific Reports} (2020)
+    \item Lam, S. D., Bordin, N., Waman, V. P., Scholes, H. M., Ashford, P., Sen, N., van Dorp, L., Rauer, C., Dawson, N. L., Pang, C. S. M., Abbasian, M., Sillitoe, I., Edwards, S. J. L., Fraternali, F., Lees, J. G., Santini J. M. \& Orengo, C. A. ``SARS-CoV-2 spike protein predicted to form stable complexes with host receptor protein orthologues from mammals.'' \textit{Scientific Reports} (2020)
+    \item Das, S., Scholes, H. M., Sen, N. \& Orengo, C. A. ``CATH functional families predict functional sites in proteins.'' \textit{Bioinformatics} (2020)
+    \item Sillitoe, I., Bordin, N., Dawson, N., Waman, V. P., Ashford, P., Scholes, H. M., Pang, C. S. M., Woodridge, L., Sen, N., Abbasian, M., Le Cornu, S., Lam, S. D., Berka, K., Hutařová Varekova, I., Svobodova, R., Lees, J. G. \& Orengo, C. A. ``CATH: increased structural coverage of functional space.'' \textit{Nucleic Acids Research} (2021; in press)
+\end{itemize}
+
+% Epigraph
+\cleardoublepage
+\vspace*{\stretch{1}}% some space at the top
+\setlength{\epigraphwidth}{0.6\textwidth}
+\thispagestyle{empty}
+\epigraph{A theory is something nobody believes, except the person who made it. An experiment is something everybody believes, except the person who made it.}{Albert Einstein}
+\vspace{\stretch{3}}
+\cleardoublepage

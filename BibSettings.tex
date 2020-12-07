@@ -1,0 +1,25 @@
+\addbibresource{/Users/harry/Dropbox/Mendeley/library.bib}
+
+\DeclareNameAlias{sortname}{family-given}
+\DeclareNameAlias{default}{family-given}
+\AtEveryBibitem{
+    \clearlist{language} % remove en
+    \clearlist{month}
+    \ifentrytype{article}{\clearfield{url}}{} % remove URL of journals
+    \ifentrytype{book}{\clearfield{url}}{} % remove URL of journals
+    \ifentrytype{incollection}{\clearfield{url}}{} % remove URL of journals
+    \clearfield{month}
+    \clearfield{file}
+}
+\renewbibmacro{in:}{} %remove In: XYZ Journal
+\DefineBibliographyStrings{english}{%
+    bibliography = {References},  % rename bibliography
+}
+
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map[overwrite=true]{
+      \step[fieldset=isbn, null]
+    }
+  }
+}
